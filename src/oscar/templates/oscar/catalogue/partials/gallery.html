@@ -12,7 +12,7 @@
                 <div class="carousel-inner">
                 {% for image in all_images %}
                     <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                        {% oscar_thumbnail image.original "440x400" upscale=False as thumb %}
+                        {% oscar_thumbnail image.original "440x400" upscale=False format="PNG" as thumb %}
                         <img src="{{ thumb.url }}" alt="{{ product.get_title }}" />
                     </div>
                 {% endfor %}
@@ -30,7 +30,7 @@
             <ol class="carousel-indicators img-thumbnail">
                 {% for image in all_images %}
                     <li data-target="#product_gallery" data-slide-to="{{ forloop.counter0 }}" class="{% if forloop.first %}active{% endif %}">
-                        {% oscar_thumbnail image.original "65x55" crop="center" as thumb %}
+                        {% oscar_thumbnail image.original "65x55" crop="center" format="PNG" as thumb %}
                         <img src="{{ thumb.url }}" alt="{{ product.get_title }}" />
                     </li>
                 {% endfor %}
@@ -45,7 +45,7 @@
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                     {% with image=product.primary_image %}
-                        {% oscar_thumbnail image.original "440x400" upscale=False as thumb %}
+                        {% oscar_thumbnail image.original "440x400" upscale=False format="PNG" as thumb %}
                         <img src="{{ thumb.url }}" alt="{{ product.get_title }}" />
                     {% endwith %}
                     </div>

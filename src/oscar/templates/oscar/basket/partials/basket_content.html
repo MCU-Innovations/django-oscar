@@ -47,7 +47,7 @@
                             <div class="col-md-2">
                                 {{ form.id }}
                                 {% with image=product.primary_image %}
-                                    {% oscar_thumbnail image.original "100x100" upscale=False as thumb %}
+                                    {% oscar_thumbnail image.original "100x100" upscale=False format="PNG" as thumb %}
                                     <a href="{{ product.get_absolute_url }}">
                                         <img class="img-thumbnail w-auto mx-auto my-0" src="{{ thumb.url }}" alt="{{ product.get_title }}"/>
                                     </a>
@@ -193,7 +193,7 @@
                             <div class="col-md-2">
                                 {{ form.id }}
                                 {% with image=form.instance.product.primary_image %}
-                                    {% oscar_thumbnail image.original "100x100" upscale=False as thumb %}
+                                    {% oscar_thumbnail image.original "100x100" upscale=False format="PNG" as thumb %}
                                     <a href="{{ form.instance.product.get_absolute_url }}">
                                         <img class="card card-body mx-auto" src="{{ thumb.url }}" alt="{{ form.instance.product.get_title }}">
                                     </a>
